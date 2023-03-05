@@ -11,13 +11,15 @@ var app = builder.Build();
 
 Console.Write(app);
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
+
 }
 
-app.UseHttpsRedirection();
+/*app.UseHttpsRedirection();*/
 
 app.UseAuthorization();
 
